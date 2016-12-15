@@ -159,7 +159,6 @@ gulp.task('copy:libs', function() {
     'system.config.js',
   ])
     .pipe(concat('vendors.min.js'))
-    .pipe(uglify())
     .pipe(gulp.dest('public/lib/js'));
 
   // copy source maps
@@ -186,10 +185,11 @@ gulp.task('copy:assets', function() {
       '*.html',
       '*.css',
       '!*.ts',
-      '!*.scss'
+      '!*.scss',
+      '*.png'
     ],
-    { base : 'src/**' })
-    .pipe(gulp.dest('public/dist'))
+    { base : 'src/**/*' })
+    .pipe(gulp.dest('public/dist'));
 });
 
 // Update the tsconfig files based on the glob pattern

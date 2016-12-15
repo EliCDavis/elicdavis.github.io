@@ -13,23 +13,27 @@ import { HeroesListComponent } from './components/hero-list.component';
 import { HeroSearchComponent } from './components/hero-search.component';
 import { HeroService }         from './services/hero.service';
 
+import { NPCComponent } from './components/npc/npc.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { BlogArchiveComponent } from './components/blog/blog-archive.component';
+
+import { BlogService } from './services/blog.service';
+
 @NgModule({
-    bootstrap: [ AppComponent ],
+    bootstrap: [AppComponent],
     declarations: [
         AppComponent,
-        DashboardComponent,
-        HeroDetailComponent,
-        HeroesListComponent,
-        HeroSearchComponent,
+        NPCComponent,
+        ToolbarComponent,
+        BlogArchiveComponent,
     ],
-  imports: [
-      BrowserModule,
-      FormsModule,
-      HttpModule,
-      AppRoutingModule,
-  ],
-  providers: [
-      HeroService,
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+    ],
+    providers: [
+        BlogService,
+    ]
 })
 export class AppModule { }
