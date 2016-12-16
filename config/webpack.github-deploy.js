@@ -54,7 +54,8 @@ module.exports = function (options) {
            logger: logger,
            remote: GIT_REMOTE_NAME,
            message: COMMIT_MESSAGE,
-           dotfiles: true // for .nojekyll
+           dotfiles: true, // for .nojekyll
+           branch: 'master',
          };
 
          // Since GitHub moved to Jekyll 3.3, their server ignores the "node_modules" and "vendors" folder by default.

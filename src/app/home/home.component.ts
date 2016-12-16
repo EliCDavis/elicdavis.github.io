@@ -10,7 +10,9 @@ import { AppState } from '../app.service';
   // Our list of styles in our component. We may add more to compose many styles together
   styleUrls: [ './home.component.css' ],
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
-  templateUrl: './home.component.html'
+  template: `
+    <h1>Welcome to my domain!</h1>
+  `
 })
 export class HomeComponent {
   // Set our default values
