@@ -1,0 +1,11 @@
+{
+  "vendor": {
+    "js": "/elicdavis.github.io/vendor.bundle.js"
+  },
+  "main": {
+    "js": "/elicdavis.github.io/main.bundle.js"
+  },
+  "polyfills": {
+    "js": "/elicdavis.github.io/polyfills.bundle.js"
+  }
+}
