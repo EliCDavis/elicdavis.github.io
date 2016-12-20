@@ -5,6 +5,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
 
 import { AppState } from './app.service';
 
+import { NPCService } from './services'
+
 /*
  * App Component
  * Top Level Component
@@ -25,7 +27,8 @@ import { AppState } from './app.service';
         </div>
         <npc class="flex-20 layout-column"></npc>
     </div>
-  `
+  `,
+  providers: [NPCService]
 })
 export class AppComponent {
 

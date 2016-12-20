@@ -1,3 +1,4 @@
 import { BlogService } from './blog.service';
+import { NPCService } from './npc.service';
 
-export { BlogService };
+export { BlogService, NPCService };

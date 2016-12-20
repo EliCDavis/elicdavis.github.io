@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { OnInit } from '@angular/core';
 
 import { BlogPreview } from '../models/blog-preview';
 import { Blog } from '../models/blog';
+import { BlogService } from '../services/blog.service';
 
 @Component({
     selector: 'blog',
@@ -26,6 +28,10 @@ import { Blog } from '../models/blog';
             margin: 20px;
             padding:20px;
         }
+        h1{
+            margin-left: 10px;
+            margin-bottom: 0px;
+        }
         .blog-item {
             border-style: solid;
             color: green;
@@ -34,12 +40,19 @@ import { Blog } from '../models/blog';
             padding: 10px;
             margin:10px;
         }
-    `]
+    `],
+    providers: [ BlogService ]
 })
-export class BlogComponent {
+export class BlogComponent implements OnInit {
 
     private blogs: BlogPreview[];
 
-    
+    constructor(private blogService: BlogService){}
+
+    ngOnInit(): void{
+        this.blogService.getBlogs().subscribe((data) => {
+            this.blogs = data;
+        });
+    }
 
 }

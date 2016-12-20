@@ -1,17 +1,25 @@
+// Angular 2
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+
+// Rx
 import { Observable } from 'rxjs/Observable';
 import { ReplaySubject } from 'rxjs/Rx';
 
-import { Blog } from '../models/blog';
-import { BlogPreview } from '../models/blog-preview';
+// Other services
+import { NPCService } from './npc.service';
+
+// User defined models
+import { Blog, BlogPreview, Dialogue } from '../models';
 
 @Injectable()
 export class BlogService {
 
-    constructor(private http: Http) { }
+    constructor(private http: Http, private npcService: NPCService) { }
 
     getBlogs(): Observable<BlogPreview[]> {
+
+        this.checkRequestsLeft();
 
         let blogTest = new ReplaySubject<BlogPreview[]>(1);
         blogTest.next([
@@ -64,11 +72,27 @@ export class BlogService {
 
     }
 
+    private checkRequestsLeft() {
+        this.http.get('https://api.github.com/rate_limit').map(this.extractData).subscribe(data => {
+            console.log('checkRequestsLeft: ', data);
+            this.npcService.giveDialouge$(
+                new Dialogue(
+                    'Github Rate Limit',
+                    [`
+                    You have (${data.rate.remaining}/${data.rate.limit}) requests remaining.
+                    This will reset in ${((data.rate.reset - (Date.now()/1000) ) / 60).toFixed(1)} minutes.
+                    `],
+                    null
+                )
+            );
+        });
+    }
+
     private extractData(res: Response) {
         return res.json();
     }
 
-    private handleError (error: Response | any) {
+    private handleError(error: Response | any) {
         console.log('HANDLE ERROR');
         // In a real world app, we might use a remote logging infrastructure
         let errMsg: string;

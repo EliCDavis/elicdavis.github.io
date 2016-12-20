@@ -19,8 +19,8 @@ import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 
 import { BlogComponent } from './blog';
-import { ToolbarComponent } from './toolbar'
-import { NPCComponent } from './npc'
+import { ToolbarComponent } from './toolbar';
+import { NPCComponent } from './npc';
 
 // Application wide providers
 const APP_PROVIDERS = [

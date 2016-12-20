@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
+
 import { Observable, Subject, Subscription } from 'rxjs/Rx';
+
 import { Dialogue } from '../models/dialogue';
+
+import { NPCService } from '../services/npc.service';
 
 const animationImagePaths: string[] = [
     'assets/img/npc/eli animation frame 1.png',
@@ -47,7 +51,9 @@ const animationImagePathsMouthClosedIndex = 2;
                 </p>
                 <div *ngIf="displayOptions != null">
                     <div *ngIf="displayOptions.length > 0">
-                        <button *ngFor="let item of displayOptions" (click)="setDialouge(item)">{{item.title}}</button>
+                        <button 
+                            *ngFor="let item of displayOptions" 
+                            (click)="setDialouge(item)">{{item.title}}</button>
                     </div>
                     <div *ngIf="displayOptions.length == 0">
                         <button (click)="nextFrameInDialouge()">Next</button>
@@ -88,7 +94,7 @@ const animationImagePathsMouthClosedIndex = 2;
             width: 100%;
             margin: 2px;
         }
-    `]
+    `],
 })
 export class NPCComponent {
 
@@ -102,7 +108,7 @@ export class NPCComponent {
 
     displayOptions: any[];
 
-    constructor() {
+    constructor(private npcService: NPCService) {
 
         const self = this;
 
@@ -117,7 +123,6 @@ export class NPCComponent {
         let allImagesLoaded$ = imagesLoaded$.bufferCount(animationImagePaths.length);
 
         allImagesLoaded$.subscribe((paths) => {
-            self.setDialouge(DialogueTreeRoot);
         });
 
         // Load in all the images and store their base46 encoding...
@@ -206,6 +211,17 @@ export class NPCComponent {
 
     nextFrameInDialouge() {
         this.nextTextFrameEvent$.next({});
+    }
+
+    ngOnInit(): void{
+        console.log('Component inited');
+        this.npcService.getDialouge$().subscribe((data) => {
+            this.setDialouge(data);
+        }, ()=>{
+            console.log('error');
+        }, ()=>{
+            console.log('complete');
+        });
     }
 
 }
