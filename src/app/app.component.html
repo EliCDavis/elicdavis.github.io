@@ -1,13 +1,18 @@
 <div fxLayout="column" fxFlex>
-  <md-toolbar>
-    <span>First Row</span>
-  </md-toolbar>
+  
+  <app-toolbar></app-toolbar>
 
-  <div fxFlex>
-    Contents
-  </div>
+  <div fxFlex fxLayout="row">
+    
+    <div fxFlex="80" fxLayout="column" style="overflow: auto;">
+      <router-outlet ></router-outlet>
+    </div>
 
-  <div>
-    Footer
+    <div fxLayout="column" fxFlex>
+      <div fxFlex></div>
+      <app-npc></app-npc>
+    </div>
+
   </div>
+  
 </div>
