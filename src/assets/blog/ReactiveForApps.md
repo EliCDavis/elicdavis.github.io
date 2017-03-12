@@ -1,5 +1,8 @@
 # Using The Reactive Architecture For Developing Applications
 
+## Context
+This was written for my Tech Writing class where I had to explain the concept of reactive programming to a more general audience that might not have a background in computer science.  Some programmers might find this explanation too vague or simplified.
+
 ## The Need To Go Reactive
 The computer industry today is progressively producing applications which operate at an ever growing complexity. The rise of these new technologies challenge how code has been traditionally written and forces programmers to re-architect established modes of thinking in order to build a much cleaner and maintainable application. Reactive programming is a style of programming that addresses current issues in traditional programming styles by utilizing concepts such as asynchronous events (process or events that are not coordinated, but can happen at the same time). It allows a developer to explicitly model non-deterministic input seen in real-time applications (such as when a user clicks a mouse) as a stream of data that can interact with other streams of data within the system. This document will address the problems with how traditional programming functions, explain how reactive programming works, and then describe the usefulness of it within modern applications.
 
