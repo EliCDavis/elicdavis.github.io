@@ -1,6 +1,6 @@
 <md-toolbar>
     <span>Eli C Davis</span>
-    <button md-button routerLink="">Home</button>
-    <button md-button routerLink="/blog">Blog</button>
-    <button md-button routerLink="/projects">Projects</button>
+    <button md-button [ngClass]="{selected: curRoute == '/'}" routerLink="">Home</button>
+    <button md-button [ngClass]="{selected: curRoute == '/blog'}"  routerLink="/blog">Blog</button>
+    <button md-button [ngClass]="{selected: curRoute == '/projects'}" routerLink="/projects">Projects</button>
   </md-toolbar>
