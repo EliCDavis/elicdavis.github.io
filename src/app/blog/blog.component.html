@@ -1,8 +1,29 @@
 <div fxLayout="row">
-  <h1>Blogs</h1>
-  <span *ngIf="blogs !== undefined">
-  <div *ngFor="let blog of blogs.getBlogPreviews()">
-    hey
-  </div>
+  <span *ngIf="blogs !== undefined" fxLayout="column" fxFlex>
+    <div class="card-container" fxFlex *ngFor="let blog of blogs.getBlogPreviews()">
+    <!--<md-card  >
+      
+      <md-card-header>
+        <md-card-title [innerText]="blog.name"></md-card-title>
+        <md-card-subtitle [innerText]="blog.getDateFormatted()"></md-card-subtitle>
+      </md-card-header>
+      
+      <md-card-content>
+        <p [innerText]="blog.summary"></p>
+      </md-card-content>
+
+      <md-card-actions>
+        <button md-button>View</button>
+      </md-card-actions>
+
+    </md-card>-->
+    
+      <div class="white-frame blog-preview">
+        <h2 [innerText]="blog.name"></h2>
+        <h4 [innerText]="blog.getDateFormatted()"></h4>
+        <p [innerText]="blog.summary"></p>
+      </div>
+      
+    </div>
   </span>
 </div>
