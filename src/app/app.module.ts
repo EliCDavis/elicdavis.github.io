@@ -15,6 +15,8 @@ import { NpcComponent } from './npc/npc.component';
 import { BlogComponent } from './blog/blog.component';
 import { HomeComponent } from './home/home.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { BlogReaderComponent } from './blog-reader/blog-reader.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     NpcComponent,
     BlogComponent,
     HomeComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    BlogReaderComponent,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,9 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     FlexLayoutModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
-      { path: 'blog', component: BlogComponent }
+      { path: 'blog', component: BlogComponent },
+      { path: 'blog/:id', component: BlogReaderComponent },
+      { path: 'projects', component: ProjectsComponent }
     ])
   ],
   providers: [],

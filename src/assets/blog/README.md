@@ -6,7 +6,7 @@
 
 #### Fun fact, my animation is built using ReactiveX Streams
 
-##### BLOG
+##### ReactiveForApps
 
 # Mathmatical Function for Animating a Heartbeat
 

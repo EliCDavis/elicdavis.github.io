@@ -1,3 +1,4 @@
+import * as https from 'https';
 // Angular
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
@@ -22,6 +23,14 @@ export class BlogService {
 
   public getBlog$(): ReplaySubject<BlogList> {
     return this.blogs$
+  }
+
+  public getBlog(id: string): Observable<any> {
+    return this.http
+      .get('assets/blog/'+id+".md")
+      .map(response => {
+        return response["_body"];
+      });
   }
 
   private loadList(): Observable<BlogList> {
