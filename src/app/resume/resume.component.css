@@ -1,0 +1,14 @@
+:host{
+    margin: 8px;
+}
+
+li {
+    padding: 4px;
+}
+
+.card {
+    font-family: 'Raleway', sans-serif;
+}
+md-card{
+    margin-bottom: 8px;
+}

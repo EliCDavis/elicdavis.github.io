@@ -1,0 +1,9 @@
+:host {
+    margin: 8px;
+    width: 250px;
+}
+
+.option {
+    cursor: pointer;
+    padding: 8px;
+}

@@ -1,0 +1,50 @@
+<md-card class="card">
+  <md-card-header>
+    <md-card-title>Introduction</md-card-title>
+  </md-card-header>
+  <md-card-content>
+    <ul>
+      <li>Attending Mississippi State University, 4.0 GPA Working toward a BS in Software Engineering, May 2018.</li>
+      <li>Developed code with Unity3D and C# since 2010.</li>
+      <li>Produced 7 web player games using the Unity3D, and kept a blog on Unity3D development that reached 300,000 views.</li>
+      <li>Founded Mississippi State’s ﬁrst game development club.</li>
+      <li>Developed Chrome extension which improves a student's user experience when using MSUs website.</li>
+    </ul>
+  </md-card-content>
+</md-card>
+
+<md-card class="card">
+  <md-card-header>
+    <md-card-title>Skills</md-card-title>
+  </md-card-header>
+  <md-card-content>
+    <div *ngFor="let skill of skills" style="margin-bottom: 2px;">
+      <b>{{skill.title}}</b> <span>{{skill.content}}</span> <br><br>
+    </div>
+  </md-card-content>
+</md-card>
+
+<md-card class="card">
+  <md-card-header>
+    <md-card-title>Competitions</md-card-title>
+  </md-card-header>
+  <md-card-content>
+    <div *ngFor="let skill of competitions" style="margin-bottom: 2px;">
+      <b>{{skill.title}}</b> - <span>{{skill.content}}</span> <br><br>
+    </div>
+  </md-card-content>
+</md-card>
+
+<md-card class="card">
+  <md-card-header>
+    <md-card-title>Work Experience</md-card-title>
+  </md-card-header>
+  <md-card-content>
+    <div *ngFor="let job of jobs" style="margin-bottom: 2px;">
+      <h3>{{ job.getTitle() }} at {{ job.getCompany() }} <br><small> {{job.getStart()}} to {{job.getEnd()}}</small></h3>
+      <ul>
+        <li *ngFor="let point of job.getPoints()">{{point}}</li>
+      </ul>
+    </div>
+  </md-card-content>
+</md-card>
